@@ -8,7 +8,6 @@ $secondary: #20C5A0;
 $tertiary: #20C5A04D;
 $primaryShadow: #00000029;
 
-
 @font-face {
     font-family: "Poppins";
     src: url("..\/stories\/fonts\/Poppins-Medium.ttf") format("truetype");
@@ -50,8 +49,6 @@ html {
         border-top: 0.1rem solid $divider;
         opacity: 0.5;
     }
-
-
 
     &__button {
         &-container {

@@ -5,7 +5,7 @@ import './HolidaySnapshot.scss';
 export const HolidaySnapshot = ({ size, primaryLabel, secondaryLabel, ...props }) => {
 
     function handleClick(event) {
-        console.log(event.target.innerHTML);
+        console.log(`${event.target.innerHTML} button was clicked`);
     }
 
     return (
