@@ -12,12 +12,20 @@ export const HolidaySnapshot = ({ booked, primaryLabel, secondaryLabel, ...props
         <div className="holiday-snapshot holiday-snapshot__container">
             <h2 className="holiday-snapshot__title">Holiday Snapshot</h2>
             <hr className="holiday-snapshot__divider" />
+            <div className="holiday-snapshot__title--sub">
+                <span className="holiday-snapshot__title--sub">Booked</span>
+                <span className="holiday-snapshot__title--sub">Remaining</span>
+            </div>
             <div className="holiday-snapshot__progress-bar">
                 <span className="holiday-snapshot__progress-bar--fill" style={{
                     width: `${booked}%`
                 }}>
                     &nbsp;
                 </span>
+            </div>
+            <div className="holiday-snapshot__title--sub">
+                <span className="holiday-snapshot__title--sub-figure">{booked}</span>
+                <span className="holiday-snapshot__title--sub-figure">{100 - booked}</span>
             </div>
             <div className="holiday-snapshot__button-container">
                 <button
