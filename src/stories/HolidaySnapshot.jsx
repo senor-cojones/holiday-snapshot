@@ -2,29 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './HolidaySnapshot.scss';
 
-export const HolidaySnapshot = ({ primary, backgroundColor, size, label, ...props }) => {
-    const mode = primary ? 'holiday-snapshot--primary' : 'holiday-snapshot--secondary';
+export const HolidaySnapshot = ({ size, primaryLabel, secondaryLabel, ...props }) => {
+
+    function handleClick(event) {
+        console.log(event.target.innerHTML);
+    }
+
     return (
-        <div className="holiday-snapshot--container">
-            <h2>Holiday Snapshot</h2>
-            <hr />
+        <div className="holiday-snapshot holiday-snapshot__container">
+            <h2 className="holiday-snapshot__title">Holiday Snapshot</h2>
+            <hr className="holiday-snapshot__divider" />
             <span>Progress Bar</span>
-            <div>
+            <div className="holiday-snapshot__button-container">
                 <button
                     type="button"
-                    className={['holiday-snapshot', `holiday-snapshot--${size}`, mode].join(' ')}
-                    style={backgroundColor && { backgroundColor }}
+                    onClick={handleClick}
+                    className={['holiday-snapshot__button holiday-snapshot__button--secondary', `holiday-snapshot__button--${size}`].join(' ')}
                     {...props}
                 >
-                    {label}
+                    {secondaryLabel}
                 </button>
                 <button
                     type="button"
-                    className={['holiday-snapshot--secondary', `holiday-snapshot--${size}`, mode].join(' ')}
-                    style={backgroundColor && { backgroundColor }}
+                    onClick={handleClick}
+                    className={['holiday-snapshot__button holiday-snapshot__button--primary', `holiday-snapshot__button--${size}`].join(' ')}
                     {...props}
                 >
-                    {label}
+                    {primaryLabel}
                 </button>
             </div>
         </div>
@@ -32,16 +36,13 @@ export const HolidaySnapshot = ({ primary, backgroundColor, size, label, ...prop
 };
 
 HolidaySnapshot.propTypes = {
-    primary: PropTypes.bool,
-    backgroundColor: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
+    primaryLabel: PropTypes.string.isRequired,
+    secondaryLabel: PropTypes.string.isRequired,
 };
 
 HolidaySnapshot.defaultProps = {
-    backgroundColor: null,
-    primary: false,
     size: 'medium',
-    onClick: undefined,
+    primaryLabel: 'New request',
+    secondaryLabel: 'Show detail',
 };
