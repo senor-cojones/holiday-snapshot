@@ -1,18 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './holidaySnapshot.css';
+import './HolidaySnapshot.scss';
 
 export const HolidaySnapshot = ({ primary, backgroundColor, size, label, ...props }) => {
     const mode = primary ? 'holiday-snapshot--primary' : 'holiday-snapshot--secondary';
     return (
-        <button
-            type="button"
-            className={['holiday-snapshot', `holiday-snapshot--${size}`, mode].join(' ')}
-            style={backgroundColor && { backgroundColor }}
-            {...props}
-        >
-            {label}
-        </button>
+        <div className="holiday-snapshot--container">
+            <h2>Holiday Snapshot</h2>
+            <hr />
+            <span>Progress Bar</span>
+            <div>
+                <button
+                    type="button"
+                    className={['holiday-snapshot', `holiday-snapshot--${size}`, mode].join(' ')}
+                    style={backgroundColor && { backgroundColor }}
+                    {...props}
+                >
+                    {label}
+                </button>
+                <button
+                    type="button"
+                    className={['holiday-snapshot--secondary', `holiday-snapshot--${size}`, mode].join(' ')}
+                    style={backgroundColor && { backgroundColor }}
+                    {...props}
+                >
+                    {label}
+                </button>
+            </div>
+        </div>
     );
 };
 
